@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
 
-        appBar: PreferredSize(
+      appBar: PreferredSize(
         preferredSize: Size.fromHeight(900.0),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(26.0, 30.0, 30.0, 0),
@@ -50,117 +50,135 @@ class _HomeState extends State<Home> {
               child: Image.asset("assets/logo.png",
                   height: 81, width: 81, alignment: Alignment.topLeft),
             ),
-          iconTheme: new IconThemeData(color: createMaterialColor(Color(0xFFC4C4C4))),
-
+            iconTheme: new IconThemeData(
+                color: createMaterialColor(Color(0xFFC4C4C4))),
           ),
         ),
       ),
-      endDrawer: Drawer(
-        child: Container(
-          child: ListView(
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.all(10.0),
-            children: <Widget>[
-              DrawerHeader(
-                child: null,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  
-                ),
+      endDrawer: Container(
+        
+        child: Drawer(
+          child: Container(
+              child: ListView(
+                // Important: Remove any padding from the ListView.
+                padding: EdgeInsets.all(10.0),
+                children: <Widget>[
+                  Container(height: 200.0),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      title: Text('About Us',
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w600,
+                              color: createMaterialColor(Color(0xFF5E5E5E)))),
+                      leading: new Icon(Icons.info,
+                          color: createMaterialColor(Color(0xFF5E5E5E))),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    new AboutUsPage()));
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      title: Text('Feedback',
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w600,
+                              color: createMaterialColor(Color(0xFF5E5E5E)))),
+                      leading: new Icon(Icons.feedback,
+                          color: createMaterialColor(Color(0xFF5E5E5E))),
+                      onTap: () {
+                        Navigator.pop(context);
+
+                        Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    new FeedbackPage()));
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      title: Text('Contact Us',
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w600,
+                              color: createMaterialColor(Color(0xFF5E5E5E)))),
+                      leading: new Icon(Icons.chat_bubble,
+                          color: createMaterialColor(Color(0xFF5E5E5E))),
+                      onTap: () {
+                        Navigator.pop(context);
+
+                        Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    new ContactUsPage()));
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      title: Text('Settings',
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w600,
+                              color: createMaterialColor(Color(0xFF5E5E5E)))),
+                      leading: new Icon(Icons.settings,
+                          color: createMaterialColor(Color(0xFF5E5E5E))),
+                      onTap: () {
+                        Navigator.pop(context);
+
+                        Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    new SettingsPage()));
+                      },
+                    ),
+                  ),
+                  Container(
+                    height: 130.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      title: Text('Log Out',
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w600,
+                              color: createMaterialColor(Color(0xFFFF5959)))),
+                      leading: new Icon(Icons.power_settings_new,
+                          color: createMaterialColor(Color(0xFFFF5959))),
+                      onTap: () {
+                        // Update the state of the app
+                        // ...
+                        // Then close the drawer
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+                ],
               ),
-              ListTile(
-                title: Text('About Us', 
-                style: TextStyle(
-                  fontSize: 17.0, 
-                  fontWeight: FontWeight.w600,
-                  color: createMaterialColor(Color(0xFF5E5E5E)))),
-                leading: new Icon(Icons.info,
-                color: createMaterialColor(Color(0xFF5E5E5E))),
-                onTap: () {
-                  Navigator.push(context, new MaterialPageRoute(
-                    builder: (BuildContext context) => new AboutUsPage()));
-                },
-              ),
-              ListTile(
-                title: Text('Feedback',
-                style: TextStyle(
-                  fontSize: 17.0, 
-                  fontWeight: FontWeight.w600,
-                  color: createMaterialColor(Color(0xFF5E5E5E)))),
-                leading: new Icon(Icons.feedback,
-                color: createMaterialColor(Color(0xFF5E5E5E))),
-                onTap: () {
-                  Navigator.push(context, new MaterialPageRoute(
-                    builder: (BuildContext context) => new FeedbackPage()));
-                },
-              ),
-              ListTile(
-                title: Text('Contact Us', 
-                style: TextStyle(
-                  fontSize: 17.0, 
-                  fontWeight: FontWeight.w600,
-                  
-                  color: createMaterialColor(Color(0xFF5E5E5E)))),
-                leading: new Icon(Icons.chat_bubble,
-                color: createMaterialColor(Color(0xFF5E5E5E))),
-                onTap: () {
-                  Navigator.push(context, new MaterialPageRoute(
-                    builder: (BuildContext context) => new ContactUsPage()));
-                },
-              ),
-              ListTile(
-                title: Text('Settings', 
-                style: TextStyle(
-                  fontSize: 17.0, 
-                  fontWeight: FontWeight.w600,
-                  color: createMaterialColor(Color(0xFF5E5E5E)))),
-                leading: new Icon(Icons.settings,
-                color: createMaterialColor(Color(0xFF5E5E5E))),
-                onTap: () {
-                  Navigator.push(context, new MaterialPageRoute(
-                    builder: (BuildContext context) => new SettingsPage()));
-                },
-              ),
-              ListTile(
-                title: Text('Log Out', 
-                style: TextStyle(
-                  fontSize: 17.0, 
-                  fontWeight: FontWeight.w600,
-                  color: createMaterialColor(Color(0xFF5E5E5E)))),
-                leading: new Icon(Icons.power_settings_new,
-                color: createMaterialColor(Color(0xFF5E5E5E))),
-                onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
-                },
-              ),
-              
-            ],
-          ),
-        color:Colors.white),
-        // child: Center(
-        //   child: Column(
-        //     mainAxisAlignment: MainAxisAlignment.center,
-        //     children: <Widget>[
-        //       const Text('This is the Drawer'),
-        //       RaisedButton(
-        //         onPressed: _closeEndDrawer,
-        //         child: const Text('Close Drawer'),
-        //       ),
-        //     ],
-        //   ),
-        // ),
+              color: Colors.white),
+        ),
       ),
       // Disable opening the end drawer with a swipe gesture.
       endDrawerEnableOpenDragGesture: false,
       body: new Center(
-        
         child: Padding(
-          padding: const EdgeInsets.only(top:165.0),
+          padding: const EdgeInsets.only(top: 165.0),
           child: Column(
-            
             children: [
               Container(
                 child: RichText(
@@ -175,7 +193,7 @@ class _HomeState extends State<Home> {
                             color: Colors.black),
                       ),
                       TextSpan(
-                        text: 'Your Guradian is ready.',
+                        text: 'Your Guardian is ready.',
                         style: TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.w500,
@@ -253,7 +271,6 @@ class _HomeState extends State<Home> {
                     fontFamily: 'Montserrat', fontWeight: FontWeight.w600),
               ),
             ),
-            
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               title: Text(
