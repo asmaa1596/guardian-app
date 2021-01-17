@@ -24,15 +24,6 @@ class _HomeState extends State<Home> {
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
-  // void _openEndDrawer() {
-  //  _scaffoldKey.currentState.openEndDrawer();
-  // }
-
-//    void _closeEndDrawer() {
-//     Navigator.of(context).pop();
-//  }
-
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -44,36 +35,20 @@ class _HomeState extends State<Home> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(900.0),
         child: Padding(
-          padding: const EdgeInsets.only(top:26.0, right:60.0, bottom:30.0),
-          child: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
-            ),
-            flexibleSpace: Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Image.asset("assets/logo.png",
-                  height: 81, width: 81, alignment: Alignment.topLeft),
+            padding: const EdgeInsets.only(top:26.0, right:60.0, bottom:30.0),
+            child: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: new Container(),
+              flexibleSpace: Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Image.asset("assets/logo.png",
+                    height: 81, width: 81, alignment: Alignment.topLeft),
 
-            ),
-            iconTheme: IconThemeData(color: Colors.grey,size: 80),
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(
-                  Icons.notifications,
-                  color: Colors.grey,
-                ),
-                onPressed: () {
-                  // do something
-                },
-              )
-            ],
-          )),
-        ),
+              ),
+              iconTheme: IconThemeData(color: Colors.grey,size: 80),
+            )),
+      ),
 
       endDrawer: Container(
         child: Drawer(
@@ -84,12 +59,12 @@ class _HomeState extends State<Home> {
                 children: <Widget>[
                   new UserAccountsDrawerHeader(
                     decoration: BoxDecoration(
-                      color:Colors.cyan[100]
+                        color:Colors.cyan[100]
                     ),
                     accountName:Text('user name',style: TextStyle(fontWeight: FontWeight.bold),),
                     accountEmail: Text('username10@gmail.com',style: TextStyle(fontWeight: FontWeight.bold),),
                     currentAccountPicture: new CircleAvatar(
-                        backgroundColor: Colors.cyan[200],
+                      backgroundColor: Colors.cyan[200],
                     ),
                   ),
                   Container(height: 20.0),
@@ -109,7 +84,7 @@ class _HomeState extends State<Home> {
                             context,
                             new MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    new AboutUsPage()));
+                                new AboutUsPage()));
                       },
                     ),
                   ),
@@ -130,7 +105,7 @@ class _HomeState extends State<Home> {
                             context,
                             new MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    new FeedbackPage()));
+                                new FeedbackPage()));
                       },
                     ),
                   ),
@@ -151,7 +126,7 @@ class _HomeState extends State<Home> {
                             context,
                             new MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    new ContactUsPage()));
+                                new ContactUsPage()));
                       },
                     ),
                   ),
@@ -172,7 +147,7 @@ class _HomeState extends State<Home> {
                             context,
                             new MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    new SettingsPage()));
+                                new SettingsPage()));
                       },
                     ),
                   ),
@@ -203,8 +178,17 @@ class _HomeState extends State<Home> {
         ),
       ),
       // Disable opening the end drawer with a swipe gesture.
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: new FloatingActionButton(
+        backgroundColor: Colors.redAccent,
+        onPressed:(){ },
+        child: Text("SOS",
+          style: TextStyle(
+              fontFamily: 'Montserrat', fontWeight:FontWeight.bold,color: Colors.white),
+        ),
+      ),
       endDrawerEnableOpenDragGesture: false,
-        bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           iconSize: 35.0,
           selectedItemColor: createMaterialColor(Color(0xFF5ACFE4)),
@@ -221,8 +205,7 @@ class _HomeState extends State<Home> {
                     fontFamily: 'Montserrat', fontWeight: FontWeight.w600),
               ),
             ),
-        
-        BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(Icons.person),
               title: Text(
                 'Profile',
@@ -236,112 +219,113 @@ class _HomeState extends State<Home> {
               _currentIndex = index;
             });
           }),
+
       body: SingleChildScrollView(
         child: new Center(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 140.0),
-          child: Column(
-            children: [
-              Container(
-                child: RichText(
-                  text: TextSpan(
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: 'Hi, Asmaa.\n',
-                        style: TextStyle(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w900,
-                            fontSize: 30.0,
-                            color: Colors.black),
-                      ),
-                      TextSpan(
-                        text: 'Your Guardian is ready.',
-                        style: TextStyle(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w500,
-                            fontSize: 17.0,
-                            color: Colors.black,
-                            height: 2),
-                      ),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 140.0),
+            child: Column(
+              children: [
+                Container(
+                  child: RichText(
+                    text: TextSpan(
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'Hi, Asmaa.\n',
+                          style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w900,
+                              fontSize: 30.0,
+                              color: Colors.black),
+                        ),
+                        TextSpan(
+                          text: 'Your Guardian is ready.',
+                          style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 17.0,
+                              color: Colors.black,
+                              height: 2),
+                        ),
+                      ],
+                    ),
+                  ),
+                  margin: const EdgeInsets.all(7.0),
+                  width: 344.0,
+                  height: 123.0,
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0, 20.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: createMaterialColor(Color(0xFFFFCE40)),
+                    boxShadow: const [
+                      BoxShadow(blurRadius: 2),
                     ],
                   ),
                 ),
-                margin: const EdgeInsets.all(7.0),
-                width: 344.0,
-                height: 123.0,
-                alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0, 20.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                  color: createMaterialColor(Color(0xFFFFCE40)),
-                  boxShadow: const [
-                    BoxShadow(blurRadius: 2),
-                  ],
-                ),
-              ),
-              Container(
-                child: GoogleMap(
-                  onMapCreated: _onMapCreated,
-                  initialCameraPosition: CameraPosition(
-                    target: _center,
-                    zoom: 11.0,
+                Container(
+                  child: GoogleMap(
+                    onMapCreated: _onMapCreated,
+                    initialCameraPosition: CameraPosition(
+                      target: _center,
+                      zoom: 11.0,
+                    ),
+                  ),
+                  margin: const EdgeInsets.all(10.0),
+                  width: 344.0,
+                  height: 270.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(0),
+                    boxShadow: const [
+                      BoxShadow(blurRadius: 2),
+                    ],
                   ),
                 ),
-                margin: const EdgeInsets.all(10.0),
-                width: 344.0,
-                height: 270.0,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(0),
-                  boxShadow: const [
-                    BoxShadow(blurRadius: 2),
-                  ],
-                ),
-              ),
-              new Container
-                (
-                  child:Row(
-                      children:<Widget>[
-                        Padding(padding:const EdgeInsets.only(left: 10.0)),
-                         RaisedButton(
-                          onPressed: () {},
-                          child: const Text('Send my location',
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 15.0,
-                                  color: Colors.white)),
-                          color: createMaterialColor(Color(0xFF232323)),
-                          elevation: 5.0,
-                          padding: EdgeInsets.all(12),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(100),
+                new Container
+                  (
+                    child:Row(
+                        children:<Widget>[
+                          Padding(padding:const EdgeInsets.only(left: 10.0)),
+                          RaisedButton(
+                            onPressed: () {},
+                            child: const Text('Send my location',
+                                style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 15.0,
+                                    color: Colors.white)),
+                            color: createMaterialColor(Color(0xFF232323)),
+                            elevation: 5.0,
+                            padding: EdgeInsets.all(12),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
 
+                            ),
                           ),
-                        ),
-                        Padding(padding:const EdgeInsets.only(left: 30.0)),
-                        RaisedButton(
-                          onPressed: () {},
-                          child: const Text('\t Start Recording ',
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 15.0,
-                                  color: Colors.white)),
-                          color: Colors.indigo[900],
-                          elevation: 5.0,
-                          padding: EdgeInsets.all(12),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(100),
+                          Padding(padding:const EdgeInsets.only(left: 30.0)),
+                          RaisedButton(
+                            onPressed: () {},
+                            child: const Text('\t Start Recording ',
+                                style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 15.0,
+                                    color: Colors.white)),
+                            color: Colors.indigo[900],
+                            elevation: 5.0,
+                            padding: EdgeInsets.all(12),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
 
+                            ),
                           ),
-                        ),
-                      ])
-              )
-            ],
+                        ])
+                )
+              ],
+            ),
           ),
         ),
       ),
-    ),
 
     );
   }
